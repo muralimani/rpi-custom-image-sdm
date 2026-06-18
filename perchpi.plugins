@@ -1,0 +1,15 @@
+user:adduser=pi|password=xxx
+apps:apps=python3-pip
+apps:apps=python3-flask
+apps:apps=wget
+runscript:"script=/home/pi/perchpi_img/download_perch_onnx.sh|runphase=1"
+mkdir:"dir=/home/pi/BirdNET-Pi|chmod=777"
+mkdir:"dir=/home/pi/simple-webapp-flask|chmod=777"
+git-clone:repo=https://github.com/muralimani/BirdNET-Pi.git|gitdir=/home/pi/BirdNET-Pi|user=root
+git-clone:repo=https://github.com/mmumshad/simple-webapp-flask.git|gitdir=/home/pi/simple-webapp-flask|user=root
+disables:wifi
+disables:piwiz
+raspiconfig:"boot_behaviour=B4"
+network:ifname=eth0|ipv4-static-ip=192.168.1.100/24|ipv4-static-gateway=192.168.1.1|ipv4-static-dns=8.8.8.8|nowifi|noipv6
+ufw:"ufwscript=ufw-rules.sh"
+runatboot:"script=startup.sh"
