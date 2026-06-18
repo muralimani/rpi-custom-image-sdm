@@ -15,5 +15,4 @@ sudo pishrink.sh perchpi.img perchpi_compressed.img
       --expand-root \
       --regen-ssh-host-keys \
       2026-04-21-raspios-trixie-arm64-full.img
-
 ```
